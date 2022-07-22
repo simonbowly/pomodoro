@@ -28,13 +28,10 @@ dependencies = [
 dynamic = ["version"]
 
 [project.scripts]
-pomodoro = "pomodoro:main"
+pomodoro = "pomodoro.pomodoro:main"
 
 [tool.hatch.version]
-path = "src/pomodoro.py"
-
-[tool.hatch.build]
-sources = ["src"]
+path = "src/pomodoro/__init__.py"
 
 [tool.hatch.build.targets.sdist]
 [tool.hatch.build.targets.wheel]

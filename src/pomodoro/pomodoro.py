@@ -10,9 +10,6 @@ from tqdm import trange
 from pygame import mixer
 
 
-__version__ = "0.1.0"
-
-
 AUDIO = pathlib.Path(__file__).parent / "audio"
 SECONDS_PER_MINUTE = 60
 
@@ -24,7 +21,7 @@ def get_sound(name):
 
 def timer(name, *, minutes, end_sound, ncols=100):
     desc = f"{name:10s} ({minutes:2d} min)"
-    for _ in trange(minutes * SECONDS_PER_MINUTE, desc=desc, ncols=ncols):
+    for _ in trange(minutes * SECONDS_PER_MINUTE, desc=desc, ncols=ncols, smoothing=0):
         time.sleep(1)
     end_sound.play()
 
