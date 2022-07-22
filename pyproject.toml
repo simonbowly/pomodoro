@@ -1,0 +1,40 @@
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[project]
+name = "pomodoro"
+description = 'Simple CLI pomodoro app'
+readme = "README.md"
+requires-python = ">=3.7"
+license = "MIT"
+keywords = []
+authors = [
+  { name = "Simon Bowly", email = "bowly@gurobi.com" },
+]
+classifiers = [
+  "Development Status :: 4 - Beta",
+  "Programming Language :: Python",
+  "Programming Language :: Python :: 3.7",
+  "Programming Language :: Python :: 3.8",
+  "Programming Language :: Python :: 3.9",
+  "Programming Language :: Python :: 3.10",
+  "Programming Language :: Python :: Implementation :: CPython",
+]
+dependencies = [
+  "pygame",
+  "tqdm",
+]
+dynamic = ["version"]
+
+[project.scripts]
+pomodoro = "pomodoro:main"
+
+[tool.hatch.version]
+path = "src/pomodoro.py"
+
+[tool.hatch.build]
+sources = ["src"]
+
+[tool.hatch.build.targets.sdist]
+[tool.hatch.build.targets.wheel]
