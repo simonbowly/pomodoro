@@ -39,10 +39,14 @@ def mixer_active():
 
 
 def pomodoro_cycle(work_end_sound="success", break_end_sound="ping"):
-    timings = [(25, 5)] * 3 + [(25, 15)]
-    for work_time, break_time in timings:
-        timer("Work", minutes=work_time, end_sound=get_sound(work_end_sound))
-        timer("Break", minutes=break_time, end_sound=get_sound(break_end_sound))
+    try:
+        timings = [(25, 5)] * 3 + [(25, 15)]
+        for work_time, break_time in timings:
+            input("Ready? Press any key.")
+            timer("Work", minutes=work_time, end_sound=get_sound(work_end_sound))
+            timer("Break", minutes=break_time, end_sound=get_sound(break_end_sound))
+    except KeyboardInterrupt:
+        print("Quitting...")
 
 
 def main():
