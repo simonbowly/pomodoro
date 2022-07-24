@@ -20,9 +20,9 @@ def get_sound(name):
     return mixer.Sound(str(AUDIO / f"{name}.wav"))
 
 
-def timer(name, *, minutes, end_sound, ncols=100):
+def timer(name, *, minutes, end_sound):
     desc = f"{name:10s} ({minutes:2d} min)"
-    for _ in trange(minutes * SECONDS_PER_MINUTE, desc=desc, ncols=ncols, smoothing=0):
+    for _ in trange(minutes * SECONDS_PER_MINUTE, desc=desc, smoothing=0):
         time.sleep(1)
     end_sound.play()
 
