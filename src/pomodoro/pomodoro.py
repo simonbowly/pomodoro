@@ -1,5 +1,6 @@
 import contextlib
 import functools
+import itertools
 import os
 import pathlib
 import time
@@ -40,7 +41,7 @@ def mixer_active():
 
 def pomodoro_cycle(work_end_sound="success", break_end_sound="ping"):
     try:
-        timings = [(25, 5)] * 3 + [(25, 15)]
+        timings = itertools.cycle([(25, 5)] * 3 + [(25, 15)])
         for work_time, break_time in timings:
             input("Ready? Press any key.")
             timer("Work", minutes=work_time, end_sound=get_sound(work_end_sound))
